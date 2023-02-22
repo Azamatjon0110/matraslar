@@ -1,13 +1,556 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Template</title>
+  <title>Matraslar</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/main.css">
 </head>
+
 <body>
 
+  <div class="overlay hide"></div>
+  <header class="header" id="top">
+    <div class="container">
+      <div class="header__top">
+        <div id="navbar" class="header__navbar">
+          <nav class="sitenav">
+            <ul class="sitenav__list lst">
+              <li class="sitenav__item item">
+                <a class="sitenav__link" href="#catalog">Katalog</a>
+              </li>
+
+              <li class="sitenav__item">
+                <a class="sitenav__link" href="#discountt">Aksiya</a>
+              </li>
+              <li class="sitenav__item">
+                <a class="sitenav__link" href="#about">Biz haqimizda</a>
+              </li>
+              <li class="sitenav__item">
+                <a class="sitenav__link" href="#addres">Manzilimiz</a>
+              </li>
+              <li class="sitenav__item">
+                <a class="sitenav__link" href="#call">Aloqa</a>
+              </li>
+              <li class="sitenav__item">
+                <button class="header__btn">Buyurtma berish</button>
+              </li>
+              <li>
+                <a class="header__tel" href="tel:+998901234567">+998 90 123 45 67</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header__order-modal hide">
+          <button class="header__order-modal-close-icon form-close"></button>
+          <h3 class="header__order-modal-title">Buyurtma qilish</h3>
+          <form class="header__order-form">
+            <input id="userName" class="header__order-input" type="text" name="user_name" aria-label="Enter your name"
+              placeholder="Ismingizni yozing" required minlength="3" />
+            <span class="header__order-num-box">
+              <label for="num" class="header__order-label-num"> +998 </label>
+              <input type="number" id="userNumber" class="header__order-input" name="user_phone"
+                placeholder="Raqamingizni yozing" required min="9" />
+            </span>
+            <label class="header__order-label" for="category">
+              Mahsulotlarni toifasini tanlang
+              <select name="user_category" id="userCategory" required>
+              </select>
+            </label>
+            <label class="header__order-label" for="count">
+              Miqdorni tanlang
+              <span class="header__order-count-box">
+                <button class="header__order-count-decrement" type="button" disabled>-</button>
+                <span id="userProductCount">1</span>
+                <button class="header__order-count-increment" type="button">+</button>
+              </span>
+            </label>
+            <button id="header__order-create-btn" type="submit">
+              Yuborish
+            </button>
+          </form>
+        </div>
+        <div class="header__order-success header__order-modal hide">
+          <img class="header__order-success-modal-close-icon" src="./images/close-icon.svg" alt="" />
+          <h2 class="header__order-success-title">
+            Arizangiz muvaffaqiyatli yuborildi
+          </h2>
+          <img class="header__order-success-img" src="./images/successfully.svg" alt="Order created successfully" />
+          <p class="header__order-success-desc">
+            Tez orada operatorlarimiz siz bilan bog’lanishadi
+          </p>
+          <button class="header__order-success-btn">OK</button>
+        </div>
+      </div>
+      <div class="header__bottom">
+        <a class="logo" href="./index.html">
+          <img class="logo__img" src="./images/logo.svg" width="109" height="25" alt="Matraslar's logo" />
+        </a>
+        <div class="header__bottom-right">
+          <a class="header__tel" href="tel:+998901234567">+998 90 123 45 67</a>
+          <button class="header__btn header__btn--active">Buyurtma berish</button>
+          <button class="header__hamburger" type="button"></button>
+          <img class="header__hamburger-close" src="./images/menu.svg" width="22" height="23"
+            alt="Header navbar hamburger close button" />
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="site-main">
+    <section class="hero">
+      <div class="container">
+        <div class="hero_box">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper hero-wrapper">
+              <div class="swiper-slide hero-slide">
+                <div class="hero-wrap">
+                  <h2 class="hero-title">Kechalari sokin dam oling</h2>
+                  <a class="katalog-link" href="#category">Katalogiya</a>
+                </div>
+              </div>
+              <div class="swiper-slide hero-slide">
+                <div class="hero-wrap">
+                  <h2 class="hero-title">Biz bilan qulaylikni his qiling</h2>
+                  <a class="katalog-link" href="#category">Katalogiya</a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="info">
+      <div class="container">
+        <ul class="row list-unstyled">
+          <li class="col-6 col-lg-3 info-item">
+            <div class="info-box text-center">
+              <h3 class="info-num">7</h3>
+              <p class="info-text">yillik tajriba</p>
+            </div>
+          </li>
+          <li class="col-6 col-lg-3 info-item">
+            <div class="info-box text-center">
+              <h3 class="info-num">10k+</h3>
+              <p class="info-text">mamnun mijozlar</p>
+            </div>
+          </li>
+          <li class="col-6 col-lg-3 info-item">
+            <div class="info-box text-center">
+              <h3 class="info-num">10</h3>
+              <p class="info-text">yillik kafolat</p>
+            </div>
+          </li>
+          <li class="col-6 col-lg-3 info-item">
+            <div class="info-box text-center">
+              <h3 class="info-num">3</h3>
+              <p class="info-text">kunda yetkazish</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    </section>
+    <section class="our-products products" id="category">
+      <div class="container">
+        <h2 class="products_title">Bizning mahsulotlar</h2>
+        <ul class="products_linsk-list" id="catalog">
+
+        </ul>
+        <ul class="products__main-box">
+
+
+        </ul>
+      </div>
+    </section>
+    <section class="discount">
+      <div class="container">
+        <h2 class="discount_title hide">Aksiyadagi mahsulotlar</h2>
+        <ul class="products_linsk-list discount-list" id="discountt">
+          <!-- Discount products here from backend -->
+        </ul>
+        <div class="discount_main-box">
+          <!-- Discount products here from backend -->
+        </div>
+      </div>
+    </section>
+    <section class="technology tech">
+      <div class="container">
+        <h2 class="tech_title">Ishlab chiqarish texnologiyalari</h2>
+        <div class="swiper techSwiper">
+          <!-- Swiper here from backend -->
+          <div class="swiper-wrapper techWrapper">
+          </div>
+          <div class="tech__pagination"></div>
+        </div>
+      </div>
+    </section>
+    <section class="dream-cloud dream">
+      <div class="container">
+        <div class="dream__top">
+          <div class="dream__bio-top">
+            <h2 class="dream__title">Dream Cloud kompaniyasi haqida</h2>
+            <p class="dream__description">
+              DreamCloud-da biz hech qachon uyqu bilan murosaga kelmasligingizga ishonamiz
+              Biz DreamCloud Sleep matrasini har bir uxlayotgan odamga kamroq pul evaziga hashamatli
+              uyqudan zavq olish imkoniyatini berish uchun ixtiro qildik.
+            </p>
+            <ul class="dream__list">
+              <li class="dream__item">Yuqori qulaylik</li>
+              <li class="dream__item">Premium materiallar</li>
+              <li class="dream__item">Hayotiy qiymat</li>
+            </ul>
+          </div>
+          <div class="dream__video video">
+            <a class="video__link" href="https://youtu.be/IR4edA1QH38">
+              <picture>
+                <source class="source" srcset="images/bed.png" type="image/webp" />
+                <img class="video__media" src="./images/bed.png" alt="Dream matress" />
+              </picture>
+            </a>
+            <button class="video__button" aria-label="Play video">
+              <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="38" cy="38" r="38" fill="#01384D" />
+                <path
+                  d="M47.1203 35.2005C49.1469 36.3706 50.1603 36.9557 50.1603 37.8332C50.1603 38.7108 49.1469 39.2959 47.1203 40.466L33.4403 48.3641C31.4136 49.5342 30.4003 50.1193 29.6403 49.6805C28.8803 49.2417 28.8803 48.0716 28.8803 45.7314V29.9351C28.8803 27.5949 28.8803 26.4248 29.6403 25.986C30.4003 25.5472 31.4136 26.1323 33.4403 27.3024L47.1203 35.2005Z"
+                  fill="white" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="dream__bottom">
+          <img class="dream__img" src="./images/black-bed.png" alt="Dream matrass" />
+          <div class="dream__bio-bottom">
+            <p class="dream__description">
+              DreamCloud kompaniyasi brendlar uyi bo'lgan Resident tarkibiga kiradi.
+              Kundalik uy mahsulotlari haqida gap ketganda, mijozlar yaxshiroq tanlovga ega.
+            </p>
+            <ul class="dream__list">
+              <li class="dream__item">Sanoatning eng yaxshi kafolati</li>
+              <li class="dream__item">Bo'sh vaqtingizda</li>
+              <li class="dream__item">Sizga mos keladigan moliyalashtirish</li>
+            </ul>
+            <p class="dream__desc">
+              DreamCloud 2018 yilda premium gibrid sifatida ishga tushirilgan.
+              to'g'ridan-to'g'ri iste'molchi uchun arzon narxda mo'ljallangan matras. Uning
+              hozirda u AQShda eng ko'p mukofotlangan hashamatli gibrid hisoblanadi. Unda bor
+              xotira ko'pik va alohida o'ralgan buloqlar orzu aralashmasi.
+              Har bir matras kaşmir bilan qoplangan va nihoyatda qulay. Rohatlaning
+              Belgilanmagan hunarmandchilik.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="choose-us choose" id="about">
+      <div class="container">
+        <h2 class="choose__title">Nega bizni tanlashadi</h2>
+        <ul class="choose__list">
+          <li class="choose__item">
+            <img class="choose__img" src="./images/delivery.png" />
+            <div class="choose__content">
+              <h3 class="choose__subtitle">Yetkazib berish</h3>
+              <p class="choose__desc">
+                Biz matraslarimiz uchun 8 yilgacha kafolat beramiz. Agar
+                matras kamida 25 mm qisqartirilsa.
+              </p>
+            </div>
+          </li>
+
+          <li class="choose__item">
+            <img class="choose__img" src="./images/call-center.png" alt="o'llab-quvvatlash" />
+            <div class="choose__content">
+              <h3 class="choose__subtitle">Qo'llab-quvvatlash</h3>
+              <p class="choose__desc">
+                Bizning qo'llab-quvvatlash xizmati sizga har qanday savolda
+                yordam beradi va menejerlarning
+              </p>
+              <a class="choose__tel" href="tel:+998971442442">+998 97 144-24-42</a>
+            </div>
+          </li>
+          <li class="choose__item">
+            <img class="choose__img" src="./images/kafolat.png" alt="Kafolat" />
+            <div class="choose__content">
+              <h3 class="choose__subtitle">Kafolat</h3>
+              <p class="choose__desc">
+                Biz matraslarimiz uchun 8 yilgacha kafolat beramiz. Agar
+                matras kamida 25 mm qisqartirilsa.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="our-address address" id="addres">
+      <div class="container">
+        <div class="swiper addressSwiper">
+          <div class="swiper-wrapper addressWrapper">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="interesting" id="call">
+      <div class="container">
+        <div class="interesting__success hide">
+          <h3 class="interesting__title">Arizangiz muvaffaqiyatli qabul qilindi ✅</h3>
+          <p class="interesting__desc">Siz bilan tez orada bog’lanamiz 😊</p>
+        </div>
+        <div class="interesting__main-wrap">
+
+          <div class="interesting__wrapper">
+            <div class="interesting__left">
+              <h3 class="interesting__title">Sizni qiziqtirdimi?</h3>
+              <p class="interesting__desc">Raqamingizni qoldiring, biz sizga yana qo'ng'iroq qilamiz</p>
+            </div>
+            <div class="interesting__right">
+              <form class="interesting__form">
+                <label class="interesting__label" for="interesting">
+                  <span class="interesting__s">+998
+                  </span>
+                  <input class="interesting__input" name="user__tel" aria-label="user_name" type="number"
+                    placeholder="Raqamingizni yozing" id="interesting" required>
+                </label>
+                <button class="interesting__button">Yuborish</button>
+              </form>
+              <span class="interesting__error"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__box">
+        <div class="footer__left">
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a class="footer__item-link" href="#about">Biz haqimizda</a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__item-link" href="#catalog">Katalog</a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__item-link" href="#discountt">Aksiya</a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__item-link" href="#addres">Manzilimiz</a>
+            </li>
+          </ul>
+        </div>
+        <ul class="footer__social-list social">
+          <li class="social__item">
+            <a class="social__link" href="https://www.facebook.com/" target="_blank">
+            </a>
+          </li>
+          <li class="social__item">
+            <a class="social__link" href="https://www.twitter.com/" target="_blank">
+            </a>
+          </li>
+          <li class="social__item">
+            <a class="social__link" href="https://www.vimeo.com/" target="_blank">
+            </a>
+          </li>
+          <li class="social__item">
+            <a class="social__link" href="https://www.youtube.com/" target="_blank">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__reserved">© 2023 Dream Cloud. Barcha huquqlar himoyalangan.</p>
+        <div class="footer__promotion">
+          <a href="#">
+            <img src="./images/vizitka.svg" alt="Abutech software development">
+          </a>
+        </div>
+        <a href="#top" class="footer__to-top"></a>
+      </div>
+    </div>
+  </footer>
+
+  <template id="categories">
+    <li class="products_links-item">
+      <a class="products_links-link" href="#">C+</a>
+    </li>
+  </template>
+
+  <template id=products>
+    <li class="prod_item">
+
+      <div class="products__zoom-selected-box hide">
+        <button class="products__zoom-close"></button>
+        <div>
+          <img class="products__zoom-selected" src="./images/matras.png" width="288" height="133" alt="" />
+        </div>
+        <ul class="products__zoom-list">
+          <li class="products__zoom-item mod">
+            <img class="products__zoom-img img-1" src="./images/matras.png" alt="a" />
+          </li>
+          <li class="products__zoom-item">
+            <img class="products__zoom-img img-2" src="" alt="a" />
+          </li>
+          <li class="products__zoom-item">
+            <img class="products__zoom-img img-3" src="./images/hero-carusel.jpg" alt="a" />
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="products_list">
+        <div class="products_item">
+          <div class="products_left">
+            <span class="new">YANGI MAHSULOT</span>
+            <img class="products__imgg" src="./images/matras.png" alt="a" />
+          </div>
+          <button class="products__zoom-btn"></button>
+          <div class="products_right">
+            <h3 class="products_right-title">O</h3>
+            <ul class="products_info-list">
+              <li class="products_info-item">
+                <p class="products_info-title">Yuklama</p>
+                <strong class="products_info-info-value weight">150
+                </strong>
+                <strong class="products_info-info">kg</strong>
+              </li>
+              <li class="products_info-item">
+                <p class="products_info-title">Kafolati</p>
+                <strong class="products_info-info-value warranty">150
+                </strong>
+                <strong class="products_info-info">yil</strong>
+              </li>
+              <li class="products_info-item">
+                <p class="products_info-title">O’lchami</p>
+                <strong class="products_info-info-value size">150
+                  <strong class="products_info-info"></strong>
+                </strong>
+              </li>
+              <li class="products_info-item">
+                <p class="products_info-title">Sig'imi</p>
+                <strong class="products_info-info-value capacity">150
+                </strong>
+                <strong class="products_info-info">kishilik</strong>
+              </li>
+            </ul>
+            <p class="products_right-desc">Desc</p>
+            <p class="products_right-price-title">Narxi</p>
+            <span class="products_right-price-value">
+              1 699 999
+            </span>
+            <strong class="products_right-price-text">so'm</strong>
+            <span class="products_category_type"></span>
+            <button class="products_right-order" style="display: block; margin-top: 2rem;">Buyurtma
+              berish</button>
+          </div>
+        </div>
+      </div>
+    </li>
+
+  </template>
+
+  <template id="discounts">
+    <div class="products__zoom-selected-box hide">
+      <button class="products__zoom-close"></button>
+      <img class="products__zoom-selected" src="./images/matras.png" width="288" height="133" alt="" />
+      <ul class="products__zoom-list">
+        <li class="products__zoom-item mod">
+          <img class="products__zoom-img" data-fancybox="gallery" src="./images/matras.png" width="44" height="44"
+            alt="a" />
+        </li>
+        <li class="products__zoom-item">
+          <img class="products__zoom-img" data-fancybox="gallery" src="" width="44" height="44" alt="a" />
+        </li>
+        <li class="products__zoom-item">
+          <img class="products__zoom-img" data-fancybox="gallery" src="./images/hero-carusel.jpg" width="44" height="44"
+            alt="a" />
+        </li>
+      </ul>
+    </div>
+
+    <ul class="products_list">
+      <li class="products_item">
+        <div class="products_left">
+          <span class="new products_new-btn">YANGI MAHSULOT</span>
+          <span class="discount-text">AKSIYA</span>
+          <img class="products__imgg" src="./images/matras.png" width="288" height="133" alt="a" />
+        </div>
+        <button class="products__zoom-btn">
+        </button>
+        <div class="products_right">
+          <h3 class="products_right-title">O</h3>
+          <ul class="products_info-list">
+            <li class="products_info-item">
+              <p class="products_info-title">Yuklama</p>
+              <strong class="products_info-info-value weight">150
+              </strong>
+              <strong class="products_info-info">kg</strong>
+            </li>
+            <li class="products_info-item">
+              <p class="products_info-title">Kafolati</p>
+              <strong class="products_info-info-value warranty">150
+              </strong>
+              <strong class="products_info-info">yil</strong>
+            </li>
+            <li class="products_info-item">
+              <p class="products_info-title">O’lchami</p>
+              <strong class="products_info-info-value size">150
+                <strong class="products_info-info"></strong>
+              </strong>
+            </li>
+            <li class="products_info-item">
+              <p class="products_info-title">Sig'imi</p>
+              <strong class="products_info-info-value capacity">150
+              </strong>
+              <strong class="products_info-info">kishilik</strong>
+            </li>
+          </ul>
+          <p class="products_right-desc">Desc</p>
+          <p class="products_right-price-title">Narxi</p>
+          <div class="products_right-discount-box" style="display: flex;">
+            <div class="price_box">
+              <del class="old_price">
+
+              </del>
+              <strong>so'm</strong>
+            </div>
+            <div class="price_box">
+              <p class="new_price products_right-price-value"></p>
+              <strong class="products_right-price-tex">so'm</strong>
+            </div>
+          </div>
+
+          <button class="products_right-order">Buyurtma berish</button>
+        </div>
+      </li>
+    </ul>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/axios@1.2.1/dist/axios.min.js"></script>
+  <script type="text/javascript">
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      }, pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      loop: true,
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: true,
+      },
+    });
+  </script>
+  <script src="./js/main.js"></script>
 </body>
+
 </html>
